@@ -1,0 +1,40 @@
+*{
+	margin:0;
+	padding: 0;
+	font-family: arial;
+}
+
+body{
+	background: #FFFBD0;
+}
+
+#main_wrapper{
+	//border: 1px solid red;
+	width: 800px;
+	height: 800px;
+	margin: 0 auto;
+}
+
+.product{
+	background: #CC6600;
+	border-radius: 5px;
+	margin: 5px;
+	color: #fff;
+	padding: 5px;
+}
+
+.number{
+	width: 20px;
+	float: right;
+	color: #fff;
+	font-weight: bold;
+}
+
+.remove_row{
+	float: right;
+	margin-right: 20px;
+}
+
+#controls{
+	text-align: center;
+}
