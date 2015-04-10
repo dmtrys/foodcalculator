@@ -41,9 +41,10 @@ function addRow(){
 function calculate(){
 		$(".prod_list").each(function() {
 			
-alert(fruits[$(this).val()].calories);
-alert($(this).val());
+
+var m = fruits[$(this).val()].calories;
 	});	
+	
 }
 
 
