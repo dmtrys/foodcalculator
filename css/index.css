@@ -43,11 +43,14 @@ body{
 }
 
 .product{
-	background: #CC6600;
+	background: #73c837;
 	border-radius: 5px;
 	margin: 5px;
 	color: #fff;
 	padding: 5px;
+	-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.38);
+	-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.38);
+	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.38);
 }
 
 .number{
@@ -55,6 +58,10 @@ body{
 	float: right;
 	color: #fff;
 	font-weight: bold;
+	border: 1px solid #fff;
+	text-align: center;
+	height: 20px;
+	border-radius: 10px;
 }
 
 .remove_row{
@@ -64,16 +71,21 @@ body{
 
 #controls{
 	text-align: center;
+	width: 780px;
+	margin: 0 auto;
 }
 
 .result{
-	background: #CC6600;
+	background: #51a615;
 	border-radius: 5px;
 	margin: 5px;
 	color: #fff;
 	padding: 5px;
 	text-align: center;
 	font-weight: bold;
+	-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.38);
+	-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.38);
+	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.38);
 }
 
 .prod_list{
