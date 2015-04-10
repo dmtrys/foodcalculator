@@ -4,14 +4,27 @@
 	font-family: arial;
 }
 
+html{
+	background: url('../images/fruits-background.jpg') no-repeat center 70% fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
 body{
-	background: #FFFBD0;
+	margin: 10px;
 }
 
 #main_wrapper{
 	//border: 1px solid red;
 	width: 800px;
-	height: 800px;
+	margin: 0 auto;
+}
+
+#results_wrapper{
+	//border: 1px solid red;
+	width: 800px;
 	margin: 0 auto;
 }
 
