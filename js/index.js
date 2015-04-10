@@ -65,7 +65,7 @@ function calculate(){
 	}
 	
 	$( "#results_wrapper" ).find(".result").remove();
-	$( "#results_wrapper" ).append('<div class=\"result\">Total calories: '+total+'</div>');
+	$( "#results_wrapper" ).append('<div class=\"result\"><span class=\"total\">Total calories:</span> '+total+'</div>');
 }
 
 function removeAll(){
