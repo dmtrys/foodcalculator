@@ -6,51 +6,53 @@ fruits[3] = {name:"Tomato", calories:"18"};
 fruits[4] = {name:"Orange", calories:"47"};
 
 function addRow(){
-	$( "#main_wrapper" ).append("<div class=\"product\"><div class=\"number\"></div>Product: <select class=\"prod_list\"></select> Weight: <input type=\"text\" class=\"weight\"> Gramms<input type=\"button\" value=\"Remove\" class=\"remove_row\"></div>");
-	$('.prod_list').empty();
-	for (var i = 0; i < fruits.length; i++) {
-    $(".prod_list").append('<option value=\"'+i+'\">' + fruits[i].name + '</option>');
-}
 	
+	$( "#main_wrapper" ).append("<div class=\"product\"><div class=\"number\"></div>Product: <select class=\"prod_list\"></select> Weight: <input type=\"text\" class=\"weight\"> Gramms<input type=\"button\" value=\"Remove\" class=\"remove_row\"></div>");
+	
+	$('.prod_list').empty();
+	
+	for (var i = 0; i < fruits.length; i++) {
+		$(".prod_list").append('<option value=\"'+i+'\">' + fruits[i].name + '</option>');
+	}
 	
 	$(".number").each(function( index ) {
-	$( this).empty();
-	$(this).append( index+1 );
+		$( this).empty();
+		$(this).append( index+1 );
 	});		
 	
 	$('.remove_row').click(function() {
 	
-	$(this).parent('div').fadeOut(500, function() { $(this).remove(); 
+		$(this).parent('div').fadeOut(500, function() { 
+		
+			$(this).remove(); 
 	
-	
-	$( ".number" ).each(function( index ) {
-	$( this).empty();
-	$(this).append( index+1 );
-	});	
-	
-	
-	});
-	
-	
-
-	
-	
+			$( ".number" ).each(function( index ) {
+				$( this).empty();
+				$(this).append( index+1 );
+			});	
+			
+		});
 	});	
 }
 
 function calculate(){
-		$(".prod_list").each(function() {
-			
+	var fruitsArray = [];
 
-var m = fruits[$(this).val()].calories;
+	$(".product").each(function() {
+		a = fruits[$(this).find('.prod_list').val()].calories;
+		b = $(this).find('.weight').val();
+		summ = ((a/100)*b);
+		fruitsArray.push(summ);                     
 	});	
+
+	var total = 0;
+	for (var i = 0; i < fruitsArray.length; i++) {
+		total += fruitsArray[i] << 0;
+	}
 	
+	$( "#main_wrapper" ).find(".result").remove();
+	$( "#main_wrapper" ).append('<div class=\"result\">Total calories: '+total+'</div>');
 }
-
-
-$( document ).ready(function() {
-
-});	
 
 function removeAll(){
 	$("#main_wrapper").empty();

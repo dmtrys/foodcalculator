@@ -38,3 +38,13 @@ body{
 #controls{
 	text-align: center;
 }
+
+.result{
+	background: #CC6600;
+	border-radius: 5px;
+	margin: 5px;
+	color: #fff;
+	padding: 5px;
+	text-align: center;
+	font-weight: bold;
+}
