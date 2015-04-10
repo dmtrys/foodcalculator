@@ -4,6 +4,12 @@ fruits[1] = {name:"Apple", calories:"52"};
 fruits[2] = {name:"Potato", calories:"77"};
 fruits[3] = {name:"Tomato", calories:"18"};
 fruits[4] = {name:"Orange", calories:"47"};
+fruits[5] = {name:"Apricot ", calories:"48"};
+fruits[6] = {name:"Avocado", calories:"160"};
+fruits[7] = {name:"Grapefruit", calories:"82"};
+fruits[8] = {name:"Grapes", calories:"114"};
+fruits[9] = {name:"Lemon ", calories:"17"};
+fruits[10] = {name:"Melon", calories:"24"};
 
 function addRow(){
 	
