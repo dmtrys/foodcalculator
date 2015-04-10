@@ -16,6 +16,16 @@ body{
 	margin: 10px;
 }
 
+.ico{
+	background-image: url('../images/icon-medium-fruits.png');
+	width: 35px;
+	height: 35px;
+	float: left;
+	margin-right: 10px;
+	bottom:7px;
+	position: relative
+}
+
 #main_wrapper{
 	//border: 1px solid red;
 	width: 800px;

@@ -13,7 +13,7 @@ fruits[10] = {name:"Melon", calories:"24"};
 
 function addRow(){
 	
-	$( "#main_wrapper" ).append("<div class=\"product\"><div class=\"number\"></div>Product: <select class=\"prod_list\"></select> Weight: <input type=\"text\" class=\"weight\" onchange=\"calculate();\"> Gramms<input type=\"button\" value=\"Remove\" class=\"remove_row\"></div>");
+	$( "#main_wrapper" ).append("<div class=\"product\"><div class=\"number\"></div><div class=\"ico\"></div>Product: <select class=\"prod_list\"></select> Weight: <input type=\"text\" class=\"weight\" onchange=\"calculate();\"> Gramms<input type=\"button\" value=\"Remove\" class=\"remove_row\"></div>");
 	
 	$('.prod_list').empty();
 	
