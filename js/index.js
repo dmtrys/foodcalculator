@@ -1,15 +1,16 @@
 var fruits = [];
-fruits[0] = {name:"Banana", calories:"89", carbs:"21.7", protein:"1.1", fat:"0.3"};
-fruits[1] = {name:"Apple", calories:"52", carbs:"13.8", protein:"0.3", fat:"0.2"};
-fruits[2] = {name:"Potato", calories:"110", carbs:"26", protein:"3", fat:"0"};
-fruits[3] = {name:"Tomato", calories:"27", carbs:"6", protein:"1", fat:"0"};
-fruits[4] = {name:"Orange", calories:"47", carbs:"21.5", protein:"1.7", fat:"0.2"};
-fruits[5] = {name:"Apricot ", calories:"48", carbs:"11.1", protein:"1.0", fat:"0.4"};
-fruits[6] = {name:"Avocado", calories:"160", carbs:"8.5", protein:"2.0", fat:"14.7"};
-fruits[7] = {name:"Grapefruit", calories:"82", carbs:"20.5", protein:"1.5", fat:"0.3"};
-fruits[8] = {name:"Grapes", calories:"114", carbs:"28.3", protein:"1.0", fat:"1.0"};
-fruits[9] = {name:"Lemon ", calories:"17", carbs:"5.4", protein:"0.6", fat:"0.2"};
-fruits[10] = {name:"Melon", calories:"24", carbs:"5.7", protein:"0.6", fat:"0.2"};
+fruits[0] = {name:"", calories:"0", carbs:"0", protein:"0", fat:"0"};
+fruits[1] = {name:"Banana", calories:"89", carbs:"21.7", protein:"1.1", fat:"0.3"};
+fruits[2] = {name:"Apple", calories:"52", carbs:"13.8", protein:"0.3", fat:"0.2"};
+fruits[3] = {name:"Potato", calories:"110", carbs:"26", protein:"3", fat:"0"};
+fruits[4] = {name:"Tomato", calories:"27", carbs:"6", protein:"1", fat:"0"};
+fruits[5] = {name:"Orange", calories:"47", carbs:"21.5", protein:"1.7", fat:"0.2"};
+fruits[6] = {name:"Apricot ", calories:"48", carbs:"11.1", protein:"1.0", fat:"0.4"};
+fruits[7] = {name:"Avocado", calories:"160", carbs:"8.5", protein:"2.0", fat:"14.7"};
+fruits[8] = {name:"Grapefruit", calories:"82", carbs:"20.5", protein:"1.5", fat:"0.3"};
+fruits[9] = {name:"Grapes", calories:"114", carbs:"28.3", protein:"1.0", fat:"1.0"};
+fruits[10] = {name:"Lemon ", calories:"17", carbs:"5.4", protein:"0.6", fat:"0.2"};
+fruits[11] = {name:"Melon", calories:"24", carbs:"5.7", protein:"0.6", fat:"0.2"};
 
 function addRow(){
 	
