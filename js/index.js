@@ -16,10 +16,8 @@ function addRow(){
 	
 	$( "#main_wrapper" ).append("<div class=\"product\"><div class=\"number\"></div><div class=\"ico\"></div>Product: <select class=\"prod_list\"></select> Weight: <input type=\"text\" class=\"weight\" onchange=\"calculate();\"> Gramms<input type=\"button\" value=\"Remove\" class=\"remove_row\"></div>");
 	
-	$('.prod_list').empty();
-	
 	for (var i = 0; i < fruits.length; i++) {
-		$(".prod_list").append('<option value=\"'+i+'\">' + fruits[i].name + '</option>');
+		$(".prod_list").last().append('<option value=\"'+i+'\">' + fruits[i].name + '</option>');
 	}
 	
 	$(".number").each(function( index ) {
