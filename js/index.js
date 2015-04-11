@@ -99,6 +99,7 @@ function calculate(){
 function removeAll(){
 	$("#main_wrapper").empty();
 	$("#results_wrapper").empty();
+	$("#results_wrapper").append('<div class=\"result\"><span class=\"total_number\"></span><span class=\"total\">Calories:</span> <span class=\"total_number\">0(cal)</span><span class=\"total\">Carbs:</span> <span class=\"total_number\">0(g)</span><span class=\"total\">Protein:</span> <span class=\"total_number\">0(g)</span><span class=\"total\">Fat:</span> <span class=\"total_number\">0(g)</span></div>');
 }
 
 $(function() {
