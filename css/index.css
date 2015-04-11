@@ -16,6 +16,12 @@ body{
 
 }
 
+input[type=button]{
+	background: #a8e805;
+	color: #176402;
+	font-weight: bold;
+}
+
 .ico{
 	background-image: url('../images/icon-medium-fruits.png');
 	width: 35px;
