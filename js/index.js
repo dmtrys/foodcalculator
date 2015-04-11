@@ -105,3 +105,29 @@ function removeAll(){
 $(function() {
 	$( "#all_wrapper" ).draggable();
 });
+
+$( document ).ready(function() {
+    $( "#cat, #cat2" ).click(function() {
+	
+		if ($('#cat2').css('display') == 'block'){
+			$('#cat2').fadeOut(1000);
+		}
+	
+		var position = $( "#cat" ).position().left;
+		if (position === 20){
+			var moveValue = "+=660px";
+		}
+		else if (position === 680){
+			var moveValue = "-=660px";
+		}
+		else{
+		
+		}
+		
+		$( "#cat" ).animate({ "left": moveValue }, 2000, function(){
+			if(moveValue == '+=660px'){
+				$('#cat2').fadeIn(100);
+			}
+		});
+	});
+});

@@ -122,6 +122,20 @@ input[type=button]{
 	position: absolute;
 	top: 17px;
 	left: 20px;
+	cursor: pointer;
+}
+
+#cat2{
+	background-image: url('../images/surprised_cat-300x199.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 34px;
+	left: 0;
+	display: none;
+	cursor: pointer;
 }
 
 #header_wrapper{
