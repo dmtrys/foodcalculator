@@ -26,6 +26,11 @@ body{
 	position: relative
 }
 
+#all_wrapper{
+	width: 800px;
+	margin: 0 auto;
+}
+
 #main_wrapper{
 	width: 800px;
 	margin: 0 auto;
@@ -34,6 +39,12 @@ body{
 .total{
 	text-decoration: underline;
 	color: #a8e805;
+}
+
+.total_number{
+	display: inline-block;
+	width: 110px;
+	text-align: left;
 }
 
 #results_wrapper{

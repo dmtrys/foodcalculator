@@ -88,10 +88,14 @@ function calculate(){
 	total = Number((total).toFixed(2));
 
 	$( "#results_wrapper" ).find(".result").remove();
-	$( "#results_wrapper" ).append('<div class=\"result\"><span class=\"total\">Total Calories:</span> '+total+' / <span class=\"total\">Carbs:</span> '+totalCarbs+' (g) / <span class=\"total\">Protein:</span> '+totalProtein+' (g) / <span class=\"total\">Fat:</span> '+totalFat+' (g)</div>');
+	$( "#results_wrapper" ).append('<div class=\"result\"><span class=\"total_number\"></span><span class=\"total\">Calories:</span> <span class=\"total_number\">'+total+'(cal)</span><span class=\"total\">Carbs:</span> <span class=\"total_number\">'+totalCarbs+'(g)</span><span class=\"total\">Protein:</span> <span class=\"total_number\">'+totalProtein+'(g)</span><span class=\"total\">Fat:</span> <span class=\"total_number\">'+totalFat+'(g)</span></div>');
 }
 
 function removeAll(){
 	$("#main_wrapper").empty();
 	$("#results_wrapper").empty();
 }
+
+$(function() {
+	$( "#all_wrapper" ).draggable();
+});

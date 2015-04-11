@@ -2,17 +2,21 @@
 <html>
 	<head>
 		<title>Food calculator</title>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css">
 		<link rel="stylesheet" type="text/css" href="css/index.css">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>	
 	</head>
 	<body>
+		<div id="all_wrapper">
 		<div id="header_wrapper"></div>
 		<div id="controls" class="result">
 			<input type="button" value="Add product" onclick="addRow();">
 			<input type="button" value="Remove all products" onclick="removeAll();">
 		</div>
 		<div id="main_wrapper"></div>	
-		<div id="results_wrapper"></div>	
+		<div id="results_wrapper"></div>
+</div>		
 	</body>
 </html> 
