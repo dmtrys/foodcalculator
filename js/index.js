@@ -27,7 +27,13 @@ function addRow(){
 	});		
 
 	$('.weight').keyup(function(event) {
-		calculate();
+		checkValue = $( this ).val();
+		if(isNaN(checkValue)){
+			$(this).val("");
+		}
+		else {
+			calculate();
+		}	
 	});
 	
 	$( ".product" ).change(function() {
