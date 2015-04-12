@@ -13,8 +13,8 @@ fruits[10] = {name:"Lemon ", calories:"17", carbs:"5.4", protein:"0.6", fat:"0.2
 fruits[11] = {name:"Melon", calories:"24", carbs:"5.7", protein:"0.6", fat:"0.2"};
 
 function addRow(){
-	
-	$( "#main_wrapper" ).append("<div class=\"product\"><div class=\"number\"></div><div class=\"ico\"></div>Product: <select class=\"prod_list\"></select> Weight: <input type=\"text\" class=\"weight\" onchange=\"calculate();\"> Gramms<input type=\"button\" value=\"Remove\" class=\"remove_row\"></div>");
+
+	$( ".main_wrapper" ).append("<div class=\"product\"><div class=\"number\"></div><div class=\"ico\"></div>Product: <select class=\"prod_list\"></select> Weight: <input type=\"text\" class=\"weight\" onchange=\"calculate();\"> Gramms<input type=\"button\" value=\"Remove\" class=\"remove_row\"></div>");
 	
 	for (var i = 0; i < fruits.length; i++) {
 		$(".prod_list").last().append('<option value=\"'+i+'\">' + fruits[i].name + '</option>');
@@ -24,7 +24,7 @@ function addRow(){
 		$( this).empty();
 		$(this).append( index+1 );
 	});		
-
+	
 	$('.weight').keyup(function(event) {
 		checkValue = $( this ).val();
 		if(isNaN(checkValue)){
@@ -92,28 +92,28 @@ function calculate(){
 	totalCarbs = Number((totalCarbs).toFixed(2));
 	total = Number((total).toFixed(2));
 
-	$( "#results_wrapper" ).find(".result").remove();
-	$( "#results_wrapper" ).append('<div class=\"result\"><span class=\"total_number\"></span><span class=\"total\">Calories:</span> <span class=\"total_number\">'+total+'(cal)</span><span class=\"total\">Carbs:</span> <span class=\"total_number\">'+totalCarbs+'(g)</span><span class=\"total\">Protein:</span> <span class=\"total_number\">'+totalProtein+'(g)</span><span class=\"total\">Fat:</span> <span class=\"total_number\">'+totalFat+'(g)</span></div>');
+	$( ".results_wrapper" ).find(".result").remove();
+	$( ".results_wrapper" ).append('<div class=\"result\"><span class=\"total_number\"></span><span class=\"total\">Calories:</span> <span class=\"total_number\">'+total+'(cal)</span><span class=\"total\">Carbs:</span> <span class=\"total_number\">'+totalCarbs+'(g)</span><span class=\"total\">Protein:</span> <span class=\"total_number\">'+totalProtein+'(g)</span><span class=\"total\">Fat:</span> <span class=\"total_number\">'+totalFat+'(g)</span></div>');
 }
 
 function removeAll(){
-	$("#main_wrapper").empty();
-	$("#results_wrapper").empty();
-	$("#results_wrapper").append('<div class=\"result\"><span class=\"total_number\"></span><span class=\"total\">Calories:</span> <span class=\"total_number\">0(cal)</span><span class=\"total\">Carbs:</span> <span class=\"total_number\">0(g)</span><span class=\"total\">Protein:</span> <span class=\"total_number\">0(g)</span><span class=\"total\">Fat:</span> <span class=\"total_number\">0(g)</span></div>');
+	$(".main_wrapper").empty();
+	$(".results_wrapper").empty();
+	$(".results_wrapper").append('<div class=\"result\"><span class=\"total_number\"></span><span class=\"total\">Calories:</span> <span class=\"total_number\">0(cal)</span><span class=\"total\">Carbs:</span> <span class=\"total_number\">0(g)</span><span class=\"total\">Protein:</span> <span class=\"total_number\">0(g)</span><span class=\"total\">Fat:</span> <span class=\"total_number\">0(g)</span></div>');
 }
 
 $(function() {
-	$( "#all_wrapper" ).draggable();
+	$( ".all_wrapper" ).draggable();
 });
 
 $( document ).ready(function() {
-    $( "#cat, #cat2" ).click(function() {
+    $( ".cat, .cat2" ).click(function() {
 	
-		if ($('#cat2').css('display') == 'block'){
-			$('#cat2').fadeOut(1000);
+		if ($('.cat2').css('display') == 'block'){
+			$('.cat2').fadeOut(1000);
 		}
 	
-		var position = $( "#cat" ).position().left;
+		var position = $( ".cat" ).position().left;
 		if (position === 20){
 			var moveValue = "+=660px";
 		}
@@ -124,9 +124,9 @@ $( document ).ready(function() {
 		
 		}
 		
-		$( "#cat" ).animate({ "left": moveValue }, 2000, function(){
+		$( ".cat" ).animate({ "left": moveValue }, 2000, function(){
 			if(moveValue == '+=660px'){
-				$('#cat2').fadeIn(100);
+				$('.cat2').fadeIn(100);
 			}
 		});
 	});

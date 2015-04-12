@@ -32,12 +32,12 @@ input[type=button]{
 	position: relative
 }
 
-#all_wrapper{
+.all_wrapper{
 	width: 800px;
 	margin: 0 auto;
 }
 
-#main_wrapper{
+.main_wrapper{
 	width: 800px;
 	margin: 0 auto;
 }
@@ -53,7 +53,7 @@ input[type=button]{
 	text-align: left;
 }
 
-#results_wrapper{
+.results_wrapper{
 	width: 800px;
 	margin: 0 auto;
 }
@@ -86,13 +86,7 @@ input[type=button]{
 	margin-right: 20px;
 }
 
-#controls{
-	text-align: center;
-	width: 780px;
-	margin: 0 auto;
-}
-
-.result{
+.result, .controls{
 	background: #51a615;
 	border-radius: 5px;
 	margin: 5px;
@@ -105,6 +99,12 @@ input[type=button]{
 	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.38);
 }
 
+.controls{
+	text-align: center;
+	width: 780px;
+	margin: 0 auto;
+}
+
 .prod_list{
 	width: 150px;
 }
@@ -113,7 +113,7 @@ input[type=button]{
 	width: 70px;
 }
 
-#cat{
+.cat{
 	background-image: url('../images/kitten.png');
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -125,7 +125,7 @@ input[type=button]{
 	cursor: pointer;
 }
 
-#cat2{
+.cat2{
 	background-image: url('../images/surprised_cat-300x199.png');
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -138,7 +138,7 @@ input[type=button]{
 	cursor: pointer;
 }
 
-#header_wrapper{
+.header_wrapper{
 	height: 100px;
 	text-align: center;
 	line-height: 100px;
