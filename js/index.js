@@ -19,7 +19,7 @@ $( document ).ready(function() {
 		$(this).parent('.controls').parent('.all_wrapper').find('.main_wrapper').append("<div class=\"product\"><div class=\"number\"></div><div class=\"ico\"></div>Product: <select class=\"prod_list\"></select> Weight: <input type=\"text\" class=\"weight\" onchange=\"calculate();\"> Gramms<input type=\"button\" value=\"Remove\" class=\"remove_row\"></div>");
 		
 		for (var i = 0; i < fruits.length; i++) {
-			$(".prod_list").last().append('<option value=\"'+i+'\">' + fruits[i].name + '</option>');
+			$(this).parent('.controls').next('.main_wrapper').find(".prod_list").last().append('<option value=\"'+i+'\">' + fruits[i].name + '</option>');
 		}
 		
 		
@@ -30,32 +30,33 @@ $( document ).ready(function() {
 		});		
 		
 		$('.weight').keyup(function(event) {
+			
+				$(this).parent('div').parent('.main_wrapper').attr('id', 'temp'); 
+			
 			checkValue = $( this ).val();
 			if(isNaN(checkValue)){
 				$(this).val("");
 			}
 			else {
 				calculate();
+				$('#temp').removeAttr('id');
 			}	
 		});
 		
 		$( ".product" ).change(function() {
+			
 			calculate();
 		});
 
 		$('.remove_row').click(function() {
-		
-
-			
-				$(this).parent('div').remove(); 
-		
-				$(this).parent('div').find('.number').each(function( index ) {
-					$(this).empty();
-					$(this).append( index+1 );
-				});	
-				
-				calculate();
-
+			$(this).parent('div').parent('.main_wrapper').attr('id', 'temp'); 
+			$(this).parent('div').remove();
+			$('#temp').find('.number').each(function( index ) {
+				$( this).empty();
+				$(this).append( index+1 );
+			});		
+			$('#temp').removeAttr('id');		
+			calculate();
 		});	
   });
 });
@@ -82,7 +83,7 @@ function calculate(){
 	var proteinArray = [];
 	var fatArray = [];
 
-	$(".product").each(function() {
+	$('#temp').find(".product").each(function() {
 		a = fruits[$(this).find('.prod_list').val()].calories;
 		carbs = fruits[$(this).find('.prod_list').val()].carbs;
 		protein = fruits[$(this).find('.prod_list').val()].protein;
@@ -114,8 +115,9 @@ function calculate(){
 	totalCarbs = Number((totalCarbs).toFixed(2));
 	total = Number((total).toFixed(2));
 
-	$( ".results_wrapper" ).find(".result").remove();
-	$( ".results_wrapper" ).append('<div class=\"result\"><span class=\"total_number\"></span><span class=\"total\">Calories:</span> <span class=\"total_number\">'+total+'(cal)</span><span class=\"total\">Carbs:</span> <span class=\"total_number\">'+totalCarbs+'(g)</span><span class=\"total\">Protein:</span> <span class=\"total_number\">'+totalProtein+'(g)</span><span class=\"total\">Fat:</span> <span class=\"total_number\">'+totalFat+'(g)</span></div>');
+	$('#temp').next( ".results_wrapper" ).find(".result").remove();
+	$('#temp').next( ".results_wrapper" ).append('<div class=\"result\"><span class=\"total_number\"></span><span class=\"total\">Calories:</span> <span class=\"total_number\">'+total+'(cal)</span><span class=\"total\">Carbs:</span> <span class=\"total_number\">'+totalCarbs+'(g)</span><span class=\"total\">Protein:</span> <span class=\"total_number\">'+totalProtein+'(g)</span><span class=\"total\">Fat:</span> <span class=\"total_number\">'+totalFat+'(g)</span></div>');
+	
 }
 
 function removeAll(){
