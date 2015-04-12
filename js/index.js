@@ -12,47 +12,69 @@ fruits[9] = {name:"Grapes", calories:"114", carbs:"28.3", protein:"1.0", fat:"1.
 fruits[10] = {name:"Lemon ", calories:"17", carbs:"5.4", protein:"0.6", fat:"0.2"};
 fruits[11] = {name:"Melon", calories:"24", carbs:"5.7", protein:"0.6", fat:"0.2"};
 
-function addRow(){
+$( document ).ready(function() {
 
-	$( ".main_wrapper" ).append("<div class=\"product\"><div class=\"number\"></div><div class=\"ico\"></div>Product: <select class=\"prod_list\"></select> Weight: <input type=\"text\" class=\"weight\" onchange=\"calculate();\"> Gramms<input type=\"button\" value=\"Remove\" class=\"remove_row\"></div>");
-	
-	for (var i = 0; i < fruits.length; i++) {
-		$(".prod_list").last().append('<option value=\"'+i+'\">' + fruits[i].name + '</option>');
-	}
-	
-	$(".number").each(function( index ) {
-		$( this).empty();
-		$(this).append( index+1 );
-	});		
-	
-	$('.weight').keyup(function(event) {
-		checkValue = $( this ).val();
-		if(isNaN(checkValue)){
-			$(this).val("");
-		}
-		else {
-			calculate();
-		}	
-	});
-	
-	$( ".product" ).change(function() {
-		calculate();
-	});
-
-	$('.remove_row').click(function() {
-	
-		$(this).parent('div').fadeOut(500, function() { 
+    $('.add_product').on('click', function() {
+  
+		$(this).parent('.controls').parent('.all_wrapper').find('.main_wrapper').append("<div class=\"product\"><div class=\"number\"></div><div class=\"ico\"></div>Product: <select class=\"prod_list\"></select> Weight: <input type=\"text\" class=\"weight\" onchange=\"calculate();\"> Gramms<input type=\"button\" value=\"Remove\" class=\"remove_row\"></div>");
 		
-			$(this).remove(); 
-	
-			$( ".number" ).each(function( index ) {
-				$( this).empty();
-				$(this).append( index+1 );
-			});	
+		for (var i = 0; i < fruits.length; i++) {
+			$(".prod_list").last().append('<option value=\"'+i+'\">' + fruits[i].name + '</option>');
+		}
+		
+		
+		
+		$(this).parent('.controls').parent('.all_wrapper').find('.number').each(function( index ) {
+			$( this).empty();
+			$(this).append( index+1 );
+		});		
+		
+		$('.weight').keyup(function(event) {
+			checkValue = $( this ).val();
+			if(isNaN(checkValue)){
+				$(this).val("");
+			}
+			else {
+				calculate();
+			}	
+		});
+		
+		$( ".product" ).change(function() {
 			calculate();
 		});
-	});	
-}
+
+		$('.remove_row').click(function() {
+		
+
+			
+				$(this).parent('div').remove(); 
+		
+				$(this).parent('div').find('.number').each(function( index ) {
+					$(this).empty();
+					$(this).append( index+1 );
+				});	
+				
+				calculate();
+
+		});	
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function calculate(){
 	var fruitsArray = [];
