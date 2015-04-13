@@ -1,3 +1,4 @@
+/* FRUITS ARRAY */
 var fruits = [];
 fruits[0] = {name:"", calories:"0", carbs:"0", protein:"0", fat:"0"};
 fruits[1] = {name:"Banana", calories:"89", carbs:"21.7", protein:"1.1", fat:"0.3"};
@@ -11,6 +12,7 @@ fruits[8] = {name:"Grapefruit", calories:"82", carbs:"20.5", protein:"1.5", fat:
 fruits[9] = {name:"Grapes", calories:"114", carbs:"28.3", protein:"1.0", fat:"1.0"};
 fruits[10] = {name:"Lemon ", calories:"17", carbs:"5.4", protein:"0.6", fat:"0.2"};
 fruits[11] = {name:"Melon", calories:"24", carbs:"5.7", protein:"0.6", fat:"0.2"};
+/* --- END --- */
 
 $( document ).ready(function() {
 
@@ -67,6 +69,43 @@ $( document ).ready(function() {
 		$(this).parent('.controls').next(".main_wrapper").next(".results_wrapper").empty();
 		$(this).parent('.controls').next(".main_wrapper").next(".results_wrapper").append('<div class=\"result\"><span class=\"total_number\"></span><span class=\"total\">Calories:</span> <span class=\"total_number\">0(cal)</span><span class=\"total\">Carbs:</span> <span class=\"total_number\">0(g)</span><span class=\"total\">Protein:</span> <span class=\"total_number\">0(g)</span><span class=\"total\">Fat:</span> <span class=\"total_number\">0(g)</span></div>');	
 	});	
+	
+	/* CATS ANIMATION */
+	$( ".cat, .cat2").click(function() {
+	
+		if ($(this).attr('class')==='cat'){
+			var catSelector = $(this);
+			var cat2Selector = $(this).next('.cat2');
+		}
+		else{
+			var catSelector = $(this).prev('.cat');
+			var cat2Selector = $(this);
+		}
+
+		if ($(cat2Selector).css('display') == 'block'){
+			$(cat2Selector).fadeOut(1000);
+		}
+	
+		var position = $( catSelector ).position().left;
+		if (position === 20){
+			var moveValue = "+=660px";
+		}
+		else if (position === 680){
+			var moveValue = "-=660px";
+		}
+		else{
+		
+		}
+		
+		$( catSelector ).animate({ "left": moveValue }, 2000, function(){
+			if(moveValue == '+=660px'){
+				$(cat2Selector).fadeIn(100);
+			}
+		});
+		
+	});
+	/* --- END --- */
+	
 });
 
 function calculate(){
@@ -115,30 +154,4 @@ function calculate(){
 
 $(function() {
 	$( ".all_wrapper" ).draggable();
-});
-
-$( document ).ready(function() {
-    $( ".cat, .cat2" ).click(function() {
-	
-		if ($('.cat2').css('display') == 'block'){
-			$('.cat2').fadeOut(1000);
-		}
-	
-		var position = $( ".cat" ).position().left;
-		if (position === 20){
-			var moveValue = "+=660px";
-		}
-		else if (position === 680){
-			var moveValue = "-=660px";
-		}
-		else{
-		
-		}
-		
-		$( ".cat" ).animate({ "left": moveValue }, 2000, function(){
-			if(moveValue == '+=660px'){
-				$('.cat2').fadeIn(100);
-			}
-		});
-	});
 });
