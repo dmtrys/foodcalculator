@@ -102,7 +102,6 @@ $( document ).ready(function() {
 				$(cat2Selector).fadeIn(100);
 			}
 		});
-		
 	});
 	/* --- END --- */
 	
