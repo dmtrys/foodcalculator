@@ -1,3 +1,4 @@
+/* FRUITS ARRAY */
 var fruits = [];
 fruits[0] = {name:"", calories:"0", carbs:"0", protein:"0", fat:"0"};
 fruits[1] = {name:"Banana", calories:"89", carbs:"21.7", protein:"1.1", fat:"0.3"};
@@ -11,56 +12,109 @@ fruits[8] = {name:"Grapefruit", calories:"82", carbs:"20.5", protein:"1.5", fat:
 fruits[9] = {name:"Grapes", calories:"114", carbs:"28.3", protein:"1.0", fat:"1.0"};
 fruits[10] = {name:"Lemon ", calories:"17", carbs:"5.4", protein:"0.6", fat:"0.2"};
 fruits[11] = {name:"Melon", calories:"24", carbs:"5.7", protein:"0.6", fat:"0.2"};
+/* --- END --- */
 
-function addRow(){
+$( document ).ready(function() {
 
-	$( ".main_wrapper" ).append("<div class=\"product\"><div class=\"number\"></div><div class=\"ico\"></div>Product: <select class=\"prod_list\"></select> Weight: <input type=\"text\" class=\"weight\" onchange=\"calculate();\"> Gramms<input type=\"button\" value=\"Remove\" class=\"remove_row\"></div>");
-	
-	for (var i = 0; i < fruits.length; i++) {
-		$(".prod_list").last().append('<option value=\"'+i+'\">' + fruits[i].name + '</option>');
-	}
-	
-	$(".number").each(function( index ) {
-		$( this).empty();
-		$(this).append( index+1 );
-	});		
-	
-	$('.weight').keyup(function(event) {
-		checkValue = $( this ).val();
-		if(isNaN(checkValue)){
-			$(this).val("");
-		}
-		else {
-			calculate();
-		}	
-	});
-	
-	$( ".product" ).change(function() {
-		calculate();
-	});
-
-	$('.remove_row').click(function() {
-	
-		$(this).parent('div').fadeOut(500, function() { 
+    $('.add_product').on('click', function() {
+  
+		$(this).parent('.controls').parent('.all_wrapper').find('.main_wrapper').append("<div class=\"product\"><div class=\"number\"></div><div class=\"ico\"></div>Product: <select class=\"prod_list\"></select> Weight: <input type=\"text\" class=\"weight\" onchange=\"calculate();\"> Gramms<input type=\"button\" value=\"Remove\" class=\"remove_row\"></div>");
 		
-			$(this).remove(); 
-	
-			$( ".number" ).each(function( index ) {
-				$( this).empty();
-				$(this).append( index+1 );
-			});	
-			calculate();
+		for (var i = 0; i < fruits.length; i++) {
+			$(this).parent('.controls').next('.main_wrapper').find(".prod_list").last().append('<option value=\"'+i+'\">' + fruits[i].name + '</option>');
+		}
+		
+		$(this).parent('.controls').parent('.all_wrapper').find('.number').each(function(index) {
+			$(this).empty();
+			$(this).append(index+1);
+		});		
+		
+		$('.weight').keyup(function(event) {
+			
+			$(this).parent('div').parent('.main_wrapper').attr('id', 'temp'); 
+			
+			checkValue = $( this ).val();
+			if(isNaN(checkValue)){
+				$(this).val("");
+				calculate();
+				$('#temp').removeAttr('id');
+			}
+			else {
+				calculate();
+				$('#temp').removeAttr('id');
+			}	
 		});
+		
+		$( ".product" ).change(function() {
+			$(this).parent('.main_wrapper').attr('id', 'temp'); 
+			calculate();
+			$('#temp').removeAttr('id');
+		});
+
+		$('.remove_row').click(function() {
+			$(this).parent('div').parent('.main_wrapper').attr('id', 'temp'); 
+			$(this).parent('div').remove();
+			$('#temp').find('.number').each(function(index) {
+				$(this).empty();
+				$(this).append(index+1);
+			});		
+			
+			calculate();
+			$('#temp').removeAttr('id');		
+		});	
+	});
+	
+	$('.remove_all').on('click', function() {
+		$(this).parent('.controls').next(".main_wrapper").empty();
+		$(this).parent('.controls').next(".main_wrapper").next(".results_wrapper").empty();
+		$(this).parent('.controls').next(".main_wrapper").next(".results_wrapper").append('<div class=\"result\"><span class=\"total_number\"></span><span class=\"total\">Calories:</span> <span class=\"total_number\">0(cal)</span><span class=\"total\">Carbs:</span> <span class=\"total_number\">0(g)</span><span class=\"total\">Protein:</span> <span class=\"total_number\">0(g)</span><span class=\"total\">Fat:</span> <span class=\"total_number\">0(g)</span></div>');	
 	});	
-}
+	
+	/* CATS ANIMATION */
+	$( ".cat, .cat2").click(function() {
+	
+		if ($(this).attr('class')==='cat'){
+			var catSelector = $(this);
+			var cat2Selector = $(this).next('.cat2');
+		}
+		else{
+			var catSelector = $(this).prev('.cat');
+			var cat2Selector = $(this);
+		}
+
+		if ($(cat2Selector).css('display') == 'block'){
+			$(cat2Selector).fadeOut(1000);
+		}
+	
+		var position = $( catSelector ).position().left;
+		if (position === 20){
+			var moveValue = "+=660px";
+		}
+		else if (position === 680){
+			var moveValue = "-=660px";
+		}
+		else{
+		
+		}
+		
+		$( catSelector ).animate({ "left": moveValue }, 2000, function(){
+			if(moveValue == '+=660px'){
+				$(cat2Selector).fadeIn(100);
+			}
+		});
+	});
+	/* --- END --- */
+	
+});
 
 function calculate(){
+	
 	var fruitsArray = [];
 	var carbsArray = [];
 	var proteinArray = [];
 	var fatArray = [];
 
-	$(".product").each(function() {
+	$('#temp').find('.product').each(function() {
 		a = fruits[$(this).find('.prod_list').val()].calories;
 		carbs = fruits[$(this).find('.prod_list').val()].carbs;
 		protein = fruits[$(this).find('.prod_list').val()].protein;
@@ -92,42 +146,11 @@ function calculate(){
 	totalCarbs = Number((totalCarbs).toFixed(2));
 	total = Number((total).toFixed(2));
 
-	$( ".results_wrapper" ).find(".result").remove();
-	$( ".results_wrapper" ).append('<div class=\"result\"><span class=\"total_number\"></span><span class=\"total\">Calories:</span> <span class=\"total_number\">'+total+'(cal)</span><span class=\"total\">Carbs:</span> <span class=\"total_number\">'+totalCarbs+'(g)</span><span class=\"total\">Protein:</span> <span class=\"total_number\">'+totalProtein+'(g)</span><span class=\"total\">Fat:</span> <span class=\"total_number\">'+totalFat+'(g)</span></div>');
-}
-
-function removeAll(){
-	$(".main_wrapper").empty();
-	$(".results_wrapper").empty();
-	$(".results_wrapper").append('<div class=\"result\"><span class=\"total_number\"></span><span class=\"total\">Calories:</span> <span class=\"total_number\">0(cal)</span><span class=\"total\">Carbs:</span> <span class=\"total_number\">0(g)</span><span class=\"total\">Protein:</span> <span class=\"total_number\">0(g)</span><span class=\"total\">Fat:</span> <span class=\"total_number\">0(g)</span></div>');
+	$('#temp').next( '.results_wrapper' ).find('.result').remove();
+	$('#temp').next( '.results_wrapper' ).append('<div class=\"result\"><span class=\"total_number\"></span><span class=\"total\">Calories:</span> <span class=\"total_number\">'+total+'(cal)</span><span class=\"total\">Carbs:</span> <span class=\"total_number\">'+totalCarbs+'(g)</span><span class=\"total\">Protein:</span> <span class=\"total_number\">'+totalProtein+'(g)</span><span class=\"total\">Fat:</span> <span class=\"total_number\">'+totalFat+'(g)</span></div>');
+	
 }
 
 $(function() {
 	$( ".all_wrapper" ).draggable();
-});
-
-$( document ).ready(function() {
-    $( ".cat, .cat2" ).click(function() {
-	
-		if ($('.cat2').css('display') == 'block'){
-			$('.cat2').fadeOut(1000);
-		}
-	
-		var position = $( ".cat" ).position().left;
-		if (position === 20){
-			var moveValue = "+=660px";
-		}
-		else if (position === 680){
-			var moveValue = "-=660px";
-		}
-		else{
-		
-		}
-		
-		$( ".cat" ).animate({ "left": moveValue }, 2000, function(){
-			if(moveValue == '+=660px'){
-				$('.cat2').fadeIn(100);
-			}
-		});
-	});
 });
